@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[PDWDB] (
+    [Id]     INT           IDENTITY (1, 1) NOT NULL,
+    [PDWID]  INT           NOT NULL,
+    [DBName] VARCHAR (128) NOT NULL,
+    [Status] BIT           NOT NULL,
+    CONSTRAINT [PK_PDWDB] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_PDWDB_PDW] FOREIGN KEY ([PDWID]) REFERENCES [dbo].[PDW] ([Id])
+);
+
