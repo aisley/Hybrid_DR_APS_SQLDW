@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="4/14/2015 6:32:17 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ArchiveProcessedFiles"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{C56BAA83-663E-4E72-988F-0BD4B19754DD}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{082FF008-E2D8-41F9-B2C3-71BEDF2956A2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,12 @@
       DTS:ObjectName="PDW_Config">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=PDW_Config;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=sqlservercharis.database.windows.net;User ID=sqladmin;Initial Catalog=HybridDRControl;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAemS2WNktcUi5bngXfLBDzAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACPyb/d7gHzyKIH8DQb7IQI9wGQLsVaf6+KczH6EHA1EgAAAAAOgAAAAAIAACAAAACL2XWEWTu7dfxQ23bK4YVfocXbMP8UjNW8++CJFpSymyAAAAAwt9dLxaosVqmxZy7e/8LAb4s/lHRE0/nH5y/+VSlH/0AAAAAKCuD428P58CU3DA10ZgzC3CyipcK3zwU9s/Sf59xt2eckNtXeWa1XgHBzuefticVAXECeHe3GocvPDXwfxOxu</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -44,7 +49,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ControlProcess">
       <DTS:VariableValue
-        DTS:DataType="8">RedBox</DTS:VariableValue>
+        DTS:DataType="8">dimEmployee</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -98,7 +103,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{1134DB35-C18B-4A5D-84A1-8B6A5E005939}"
-          SQLTask:SqlStatementSource="select ECD.ID as ETLControlDetailID, FileName, EC.ArchivePath from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA;&#x9;Where ControlProcess = ? and PrimaryAPSStatus = 3 and SecondaryAPSStatus = 3&#xA;order by ecd.id"
+          SQLTask:SqlStatementSource="select ECD.ID as ETLControlDetailID, FileName, EC.ArchivePath from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA; Where ControlProcess = ? and PrimaryAPSStatus = 3 and SecondaryAPSStatus = 3&#xA;order by ecd.id"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -260,7 +265,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql12">
+  Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">

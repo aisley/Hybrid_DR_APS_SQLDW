@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DualLoadDriver"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{BE300F80-E993-4474-A91A-4566DE006B3E}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{9886FC23-82CC-46E5-A25C-D4C972239B1B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,12 @@
       DTS:ObjectName="PDW_Config">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=PDW_Config;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=sqlservercharis.database.windows.net;User ID=sqladmin;Initial Catalog=HybridDRControl;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAemS2WNktcUi5bngXfLBDzAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABfumhfm0rka65RYtMnaURAmhX7GynmITnfz9KJe42KzQAAAAAOgAAAAAIAACAAAAAitNkWtD65Biumllz504j19gdNOjVaYW9GwuL6LDMOHCAAAADnTDX05ylA7nLnAvV4mLWBSuLCp7NzIVKhN/RW1bKFtEAAAAA78D6y/I6kngfFCTNi91uwuke7JOjxlDazIbUbEksYHvyi1mXTkxvIiWGm71KKrPj5J8QhOfjMeHQcNQ4hssxS</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +38,7 @@
       DTS:ObjectName="RedBox.dtsx">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Data\RedBox\ToBeProcessed\Title Perfomance5.11.14part1.csv" />
+          DTS:ConnectionString="Z:\DimEmployee\ToBeProcessed\DimEmployee_01.csv" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -45,7 +50,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ControlProcess">
       <DTS:VariableValue
-        DTS:DataType="8">Redbox</DTS:VariableValue>
+        DTS:DataType="8">DimEmployee</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -91,7 +96,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="PDWId">
       <DTS:VariableValue
-        DTS:DataType="3">1</DTS:VariableValue>
+        DTS:DataType="3">3</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
