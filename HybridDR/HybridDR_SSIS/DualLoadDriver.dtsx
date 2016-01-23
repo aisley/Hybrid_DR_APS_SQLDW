@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="4/14/2015 3:01:42 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DualLoadDriver"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{E07060B2-41C8-4030-95A6-C3D24173E298}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{BE300F80-E993-4474-A91A-4566DE006B3E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -159,7 +159,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D0F29FFF-FE04-42F8-8F1F-D7FB9BA8989B}"
-          SQLTask:SqlStatementSource="if(? = 1)&#xA;Begin&#xA;&#x9;select ECD.ID as ETLControlDetailID, FileName from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA;&#x9;Where ControlProcess = ? and PrimaryAPSStatus = 1&#xA;order by ecd.id&#xA;end&#xA;Else&#xA;begin&#xA;&#x9;select ECD.ID as ETLControlDetailID, FileName from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA;&#x9;Where ControlProcess = ? and SecondaryAPSStatus = 1&#xA;order by ecd.id&#xA;End"
+          SQLTask:SqlStatementSource="if(? = 1)&#xA;Begin&#xA; select ECD.ID as ETLControlDetailID, FileName from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA; Where ControlProcess = ? and PrimaryAPSStatus = 1&#xA;order by ecd.id&#xA;end&#xA;Else&#xA;begin&#xA; select ECD.ID as ETLControlDetailID, FileName from ETLControl EC join ETLControlDetail ECD on ec.id = ECD.ETLControlID&#xA; Where ControlProcess = ? and SecondaryAPSStatus = 1&#xA;order by ecd.id&#xA;End"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -264,7 +264,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D0F29FFF-FE04-42F8-8F1F-D7FB9BA8989B}"
-              SQLTask:SqlStatementSource="if(? = 1)&#xA;Begin&#xA;&#x9;Update ETLControlDetail Set PrimaryAPSStatus = 2 Where ID = ?&#xA;end&#xA;Else&#xA;begin&#xA;&#x9;Update ETLControlDetail Set SecondaryAPSStatus = 2 Where ID = ?&#xA;End" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="if(? = 1)&#xA;Begin&#xA; Update ETLControlDetail Set PrimaryAPSStatus = 2 Where ID = ?&#xA;end&#xA;Else&#xA;begin&#xA; Update ETLControlDetail Set SecondaryAPSStatus = 2 Where ID = ?&#xA;End" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::PrimaryPDW"
@@ -380,7 +380,7 @@
 <!--If you manually edit this section and make a mistake, you can delete it. -->
 <!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
-  Version="sql12">
+  Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">

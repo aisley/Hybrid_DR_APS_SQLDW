@@ -2,7 +2,7 @@
     [Id]           INT          IDENTITY (1, 1) NOT NULL,
     [PDWName]      NCHAR (10)   NOT NULL,
     [PrimaryPDW]   NCHAR (10)   NULL,
-    [PDWIPAddress] VARCHAR (25) NOT NULL,
+    [PDWIPAddress] VARCHAR (50) NOT NULL,
     CONSTRAINT [PK__PDW__3214EC070E6005B6] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
