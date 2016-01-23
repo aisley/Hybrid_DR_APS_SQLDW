@@ -1,4 +1,4 @@
-﻿/*INSERT INTO [PDW]
+﻿INSERT INTO [PDW]
            ([PDWName]
            ,[PrimaryPDW]
            ,[PDWIPAddress])
@@ -22,7 +22,7 @@ INSERT INTO [ETLControl]
            ,'Z:\DimEmployee\ToBeProcessed'
            ,'Z:\DimEmployee\Archived');
 
-*/
+
 
 INSERT INTO [ETLStatusCode]
            ([DescShort]
